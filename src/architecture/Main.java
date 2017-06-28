@@ -11,26 +11,6 @@ public class Main {
 		//Server server = new Server(port);
 		IncomingServer server = new IncomingServer(port);
 		server.start();
-//		String eml = "1";
-//		File file = new File("C:\\Net\\Messages\\" + eml + ".eml");
-//		long fileLength = file.length();
-//		System.out.println(fileLength);
-//		
-//		String response = "";
-//		String line = null;
-//		try {
-//			Scanner sc = new Scanner(file);
-//			response += "BODY[] {" + fileLength + "}\r\n";
-//			while (sc.hasNextLine()) {
-//				line = sc.nextLine() + "\r\n";
-//				response += line;
-//			}
-//			
-//		} catch (FileNotFoundException e1) {
-//			System.out.println("Message file doesn't exist.");
-//			e1.printStackTrace();
-//		}
-//		System.out.println(response);
 	}
 
 }
