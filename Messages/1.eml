@@ -1,0 +1,220 @@
+Delivered-To: ajestkov@gmail.com
+Received: by 10.100.189.8 with SMTP id h8csp1188615pjc;
+        Mon, 15 May 2017 17:17:30 -0700 (PDT)
+X-Received: by 10.36.211.130 with SMTP id n124mr8180544itg.107.1494893850776;
+        Mon, 15 May 2017 17:17:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1494893850; cv=none;
+        d=google.com; s=arc-20160816;
+        b=T//kImc6ndbPDkAm1Nu4EhTuycYjuQsIInIDEuA+59QdecMetAJgnSG43KY7w0eGRm
+         Xnj7NB3vB8zk/LaDC0jLC/zhYdk56AWtj6xOQljmHUbttFRRtMtrJiY7IuDzUmH1Hbdo
+         l99/2YFWwQRCM53yZ/kDZn7vYKSqALlMnU6eMrqiVc+/o/7zIJdsH9DrIKPPkiZdmc11
+         yOPV7ZfhdhR42rgLCE853UAEaLcCa02VIfw1UGpNbJ5qF57Eue45+ICf27z+XOTs/3gh
+         htfDYjhIlf/H3HZs6RiZ3p00zlgqVr2SVvkd+BmZ0ZlH5FJPbwdzFQOywq+UHDYCh+zS
+         sOzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature:dkim-signature:arc-authentication-results;
+        bh=U02Ou+mkdNwcXe2TZGqVxXG+ELNL7iFpce1YbKze2dQ=;
+        b=PXv0FsEb2obiQ+3XSI+JqsIz88AuA/lpMFfYr2OUrcNTRh/CEVNss7LuAu7Ll9GGTf
+         bcS1Bwd4qSweLGFlaYP+aYBNT15gs7PKeG+bc8Jk/Ea5AsY9AIXuLaV+MVGIolAb0Slv
+         tRbJGSVrV0fybemQb/WS8D6DOXlKGQgwky2UAX/mwVu4qEmDvGCPbIr4HDzuTZt0jfCY
+         tHIL4loBzQ/sGgEntqvTgGhtJIlMa1IRmhOSPGnvFu+biw6ONl6rqoDxwTfT9RFbEE/2
+         FKSMt7sVjdEDj9DEZDGKYG4tvHfrSwa+VObMk3SUIM72x7449iiiSIE38YtSCDoctfO0
+         ZvWw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hackreactor.com;
+       dkim=pass header.i=@sendgrid.info;
+       spf=pass (google.com: domain of bounces+4823777-f9fd-ajestkov=gmail.com@sendgrid.net designates 198.21.4.114 as permitted sender) smtp.mailfrom=bounces+4823777-f9fd-ajestkov=gmail.com@sendgrid.net
+Return-Path: <bounces+4823777-f9fd-ajestkov=gmail.com@sendgrid.net>
+Received: from o6.delivery.customeriomail.com (o6.delivery.customeriomail.com. [198.21.4.114])
+        by mx.google.com with ESMTPS id v27si11950321ioi.251.2017.05.15.17.17.30
+        for <ajestkov@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 15 May 2017 17:17:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+4823777-f9fd-ajestkov=gmail.com@sendgrid.net designates 198.21.4.114 as permitted sender) client-ip=198.21.4.114;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hackreactor.com;
+       dkim=pass header.i=@sendgrid.info;
+       spf=pass (google.com: domain of bounces+4823777-f9fd-ajestkov=gmail.com@sendgrid.net designates 198.21.4.114 as permitted sender) smtp.mailfrom=bounces+4823777-f9fd-ajestkov=gmail.com@sendgrid.net
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; 
+	d=hackreactor.com; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding; 
+	s=smtpapi; bh=vq3JjlKO6/iP+0oAm+/QTUFrLK8=; b=tLx8Jfm/CfNcMXovnH
+	5X8VgNcHsuXZ4ofJ+Kok8UbTswp1ZAvzDm6oESaISKtx6qI+45DQwVEn7Usick+h
+	/0LEWJkxz7tjeyzcVAWSdgHpX3mE/+cM5VXdcc3z4+7NbE/IPHmUBMwW+zUhi9tf
+	NLPiKlPz14V5YW7/BvlioWoDQ=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=sendgrid.info; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding:x-feedback-id; 
+	s=smtpapi; bh=vq3JjlKO6/iP+0oAm+/QTUFrLK8=; b=F2xuTyWHoVTzVwlUl9
+	6YbvrQCyIMGRLc3O545Gu4qN9QZZjsi0FN9Xbt4c9cERPNfLyB8K/XYmIy4EtaTA
+	qFJFWQvCtHcQrDUKN4jrmrNiyDFsMwoGmhc+4KiMRsDHEW8YjIDa+Xs9GfsiGxZV
+	pXewyRy7XtVzp4XtOUXr5wJDk=
+Received: by filter0922p1mdw1.sendgrid.net with SMTP id filter0922p1mdw1-31569-591A4519-45
+        2017-05-16 00:17:29.561039139 +0000 UTC
+Received: from delivery.customeriomail.com (ovh65.cio.host [192.99.100.222])
+	by ismtpd0006p1iad1.sendgrid.net (SG) with ESMTP id JRBGaPodTrOCjx7kNg57uA
+	for <ajestkov@gmail.com>; Tue, 16 May 2017 00:17:29.427 +0000 (UTC)
+Date: Tue, 16 May 2017 00:17:28 +0000
+From: Nick Mann <nick@hackreactor.com>
+To: Andrey Zhestkov <ajestkov@gmail.com>
+Message-ID: <591a4518cac24_13d2b9107c2920452eb@ovh65.cio.host.mail>
+Subject: Do you want to become a software engineer without quitting your job?
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_591a4518c9054_13d2b9107c292044965";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SG-EID: 7oY1TMw4Ql4KbGPyXYaROULs1DsPzm3Hdj0+ql+eBazIRMK08HmjgmtT/kE4fjm/6kVME5yvmzQiM+
+ KbY/L/y+0LlFHnKWNqlVNxzVmVdG88i6ZOn9D56RAeow9h/i+lnX3QU2upF+aeFb9Kz/p5ZdCF80cQ
+ cnnXmAMwor5edfUKX8x6FYCR94uYE8TORL1cucstarzLgs7Nh3oSpjtkPg==
+X-SG-ID: YDTqBOjidbCUo/ar1oAtZnfAst7vyy+B3mF06RZ5Do+/NHXpQLLwF9gk4Z6rhUuQ5UruKtmGzn6nyv
+ UkpdxJcU2NdvXjKZGgSyNfhstET7NhF9eNpGjuzKW7/tsd7yMV
+X-Feedback-ID: 4823777:gr0EZH25NMNEqgS5GGD8bDzkl1i+RHBRNnszkmtyoco=:gr0EZH25NMNEqgS5GGD8bDzkl1i+RHBRNnszkmtyoco=:SG
+
+
+----==_mimepart_591a4518c9054_13d2b9107c292044965
+Date: Tue, 16 May 2017 00:17:28 +0000
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-ID: <591a4518c9fe8_13d2b9107c29204506a@ovh65.cio.host.mail>
+
+Hey Andrey,
+
+The Hack Reactor Prep team passed along your contact since you
+signed up for Prep. I hope you don't mind me reaching out.
+
+You may already know that Hack Reactor has a new, part-time
+remote program ( http://getcoding.hackreactor.com/remote-part-time/ ) but I
+figured I would send over the details either way!
+
+Part-Time Program Highlights:
+* It's identical to the full-time immersive, but delivered at 15
+hr/wk over 9 months.
+
+* The next cohort begins July 5 and runs Wednesday 6pm-9pm,
+Saturday 9am-6pm (Pacific Time)
+
+* Flexible financing options are available
+
+* It's perfect for folks who do not want to quit their current
+job or have a busy schedule
+
+If you're interested, please reply with some info about your
+background and goals. You can also set up a call on my calendar ( https://calendar.google.com/calendar/selfsched?sstoken=UUpOTVF1cXhORUpFfGRlZmF1bHR8ODU5NDk0MzhhZWE5MTRmNzU3NjkwNzdmMGE0NGNkNGE ) to discuss the program more.
+
+Looking forward to hearing from you!
+
+Warmly,
+Nick Mann
+
+p.s. If you've already applied to Hack Reactor, you can ignore
+this message or pass it along to someone who may be interested in
+a part-time coding program :)
+
+-->
+
+----==_mimepart_591a4518c9054_13d2b9107c292044965
+Date: Tue, 16 May 2017 00:17:28 +0000
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-ID: <591a4518ca6df_13d2b9107c292045180@ovh65.cio.host.mail>
+
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+    <style type=3D"text/css">
+      body { max-width:500px; margin:10; padding: 0; font-family: sans-seri=
+f; font-size:13px; font-style: normal;}
+      h1 { font-size: 16px; line-height:20px; }
+      h2 { font-size: 14px; line-height:18px; }
+      p { font-size: 13px; line-height: 16px; }
+      .center { text-align: center }
+      .unsubscribe { color:#727272; line-height:18px; font-size:10px }
+      .unsubscribe a { color: #333 }
+
+      @media only screen and (max-device-width: 480px) {
+        body { width: 320px !important; margin: 0; padding: 0; }
+        td img { height:auto !important; max-width:100% !important;}
+      }
+    </style>
+  </head>
+  <body style=3D"max-width: 500px; font-family: sans-serif; font-size: 13px=
+; font-style: normal; margin: 10; padding: 0;">
+    <!-- We'll replace this content tag with whatever you write in your ema=
+il  -->
+=20=20=20=20
+
+
+
+
+<style type=3D"text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; -webk=
+it-text-stroke: #000000}
+span.s1 {font-kerning: none}
+</style>
+
+
+<div class=3D"p1"><br></div>
+<div class=3D"p1">Hey Andrey,  </div>
+<div class=3D"p1"></div>
+<div class=3D"p1"><br></div>
+<div class=3D"p1">The Hack Reactor Prep team passed along your contact sinc=
+e you signed up for Prep. I hope you don't mind me reaching out. </div>
+<div class=3D"p1"><br></div>
+<div class=3D"p1">You may already know that Hack Reactor has a new, <a targ=
+et=3D"_blank" href=3D"http://emails.hackreactor.com/e/c/eyJlbWFpbF9pZCI6Ik5=
+EUTBOekU2RndGTHJBSmtBQUp6QUJjQlN5d2FBVmtkanhqSEZUY1lXUnBFM2dGdE9qUTVOemd6Tn=
+dBPSIsInBvc2l0aW9uIjowLCJocmVmIjoiaHR0cDovL2dldGNvZGluZy5oYWNrcmVhY3Rvci5jb=
+20vcmVtb3RlLXBhcnQtdGltZS8iLCJsaW5rX2lkIjozNTY0ODMxNn0/6f04b8d41e45101b5785=
+9600549ee03b5ff901bf4ae05216287e2e71f4f564c2">part-time remote program</a> =
+but I figured I would send over the details either way!</div>
+<div class=3D"p1"><br></div>
+<div class=3D"p1">Part-Time Program Highlights:</div>
+<div class=3D"p1"><ul>
+<li>It's identical to the full-time immersive, but delivered at 15 hr/wk ov=
+er 9 months.<br>
+</li>
+<li>The next cohort begins July 5 and runs Wednesday 6pm-9pm, Saturday 9am-=
+6pm (Pacific Time)<br>
+</li>
+<li>Flexible financing options are available<br>
+</li>
+<li>It's perfect for folks who do not want to quit their current job or hav=
+e a busy schedule</li>
+</ul></div>
+<div class=3D"p1"><br></div>
+<div class=3D"p1">
+<b>If you're interested, please reply with some info about your background =
+and goals.</b> You can also <a target=3D"_blank" href=3D"http://emails.hack=
+reactor.com/e/c/eyJlbWFpbF9pZCI6Ik5EUTBOekU2RndGTHJBSmtBQUp6QUJjQlN5d2FBVmt=
+kanhqSEZUY1lXUnBFM2dGdE9qUTVOemd6TndBPSIsInBvc2l0aW9uIjoxLCJocmVmIjoiaHR0cH=
+M6Ly9jYWxlbmRhci5nb29nbGUuY29tL2NhbGVuZGFyL3NlbGZzY2hlZD9zc3Rva2VuPVVVcE9UV=
+kYxY1hoT1JVcEZmR1JsWm1GMWJIUjhPRFU1TkRrME16aGhaV0U1TVRSbU56VTNOamt3TnpkbU1H=
+RTBOR05rTkdFIiwibGlua19pZCI6MzU2NDgzMTd9/9a498ac94b259f0cb452f031e50ae48cdb=
+653c7420d19df7a468ce89ef8cae33">set up a call on my calendar</a> to discuss=
+ the program more.=C2=A0</div>
+<div class=3D"p1"><br></div>
+<div class=3D"p1">Looking forward to hearing from you!</div>
+<div class=3D"p1"><br></div>
+<div class=3D"p1">Warmly,</div>
+<div class=3D"p1">Nick Mann<br><br>p.s. If you've already applied to Hack R=
+eactor, you can ignore this message or pass it along to someone who may be =
+interested in a part-time coding program :)</div>
+
+    <!--<p class=3D"unsubscribe"><br/>-->
+    <!--  Want out of the loop?-->
+    <!--  <a class=3D"untracked" href=3D"http://track.customer.io/unsubscri=
+be/NDQ0NzE6FwFLrAJkAAJzABcBSywaAVkdjxjHFTcYWRpE3gFtOjQ5NzgzNwA=3D">Unsubscr=
+ibe</a>-->
+    <!--</p>-->
+  <img src=3D"http://emails.hackreactor.com/e/o/eyJlbWFpbF9pZCI6Ik5EUTBOekU=
+2RndGTHJBSmtBQUp6QUJjQlN5d2FBVmtkanhqSEZUY1lXUnBFM2dGdE9qUTVOemd6TndBPSJ9">
+</body>
+</html>
+
+----==_mimepart_591a4518c9054_13d2b9107c292044965--
