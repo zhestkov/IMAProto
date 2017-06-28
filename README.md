@@ -13,5 +13,6 @@ User
 Mailox
 Message
 ```
+There is a trigger ```on_new_messages``` for ***NOOP*** command processing to notify the server that info about incoming message was added to database (table *Message*).
 
 The messages (its content) store in directory *Messages* as *.eml files.
